@@ -8,6 +8,15 @@ terraform {
       version = ">= 4.65"
      }
   }
+
+   backend "s3" {
+    bucket = "magiclab396-terraform-on-aws-eks"
+    key    = "dev/eks-cluster/terraform.tfstate"
+    region = "ap-southeast-1" 
+ 
+    # For State Locking
+    dynamodb_table = "dev-ekscluster"    
+  }  
 }
 
 # Terraform Provider Block

@@ -20,6 +20,15 @@ terraform {
       version = "~> 3.3"
     }
   }
+
+   backend "s3" {
+    bucket = "magiclab396-terraform-on-aws-eks"
+    key    = "dev/nginx-storage/terraform.tfstate"
+    region = "ap-southeast-1" 
+
+    # For State Locking
+    dynamodb_table = "dev-nginx-storage"    
+  }  
   
 }
 
