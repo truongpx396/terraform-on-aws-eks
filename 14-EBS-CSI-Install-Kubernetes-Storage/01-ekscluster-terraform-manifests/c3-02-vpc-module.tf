@@ -10,7 +10,7 @@ module "vpc" {
   version = "5.1.2" 
 
   # VPC Basic Details
-  name = local.eks_cluster_name
+  name = local.eks_vpc_name
   cidr = var.vpc_cidr_block
   azs             = data.aws_availability_zones.available.names
   public_subnets  = var.vpc_public_subnets
