@@ -9,4 +9,13 @@ terraform {
       source = "hashicorp/null"
     }
   }
+
+  backend "s3" {
+    bucket = "magiclab396-terraform-on-aws-eks"
+    key    = "dev/kube-prometheus/terraform.tfstate"
+    region = "ap-southeast-1" 
+
+    # For State Locking
+    dynamodb_table = "dev-kube-prometheus"    
+  }     
 }
