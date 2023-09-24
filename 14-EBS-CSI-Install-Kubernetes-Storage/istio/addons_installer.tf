@@ -1,5 +1,5 @@
 data "kubectl_filename_list" "manifests" {
-    pattern = "./addons/*.yaml"
+    pattern = "./addons/*"
 }
 
 resource "kubectl_manifest" "istio_addons_installer" {
