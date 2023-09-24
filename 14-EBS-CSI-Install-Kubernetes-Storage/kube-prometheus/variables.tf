@@ -60,7 +60,7 @@ variable "cluster_domain" {
 
 variable "enable_prometheusrules" {
   type        = bool
-  default     = false
+  default     = true
   description = "Adds PrometheusRules for alerts"
 }
 
