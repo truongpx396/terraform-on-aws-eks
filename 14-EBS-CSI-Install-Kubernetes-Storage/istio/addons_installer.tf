@@ -1,15 +1,15 @@
-data "kubectl_path_documents" "manifests_addons_extras" {
-    pattern = "./addons/extras/*.yaml"
-}
+# data "kubectl_path_documents" "manifests_addons_extras" {
+#     pattern = "./addons/extras/*.yaml"
+# }
 
-resource "kubectl_manifest" "istio_addons_extras_installer" {
-    for_each  = toset(data.kubectl_path_documents.manifests_addons_extras.documents)
-    yaml_body = each.value
+# resource "kubectl_manifest" "istio_addons_extras_installer" {
+#     for_each  = toset(data.kubectl_path_documents.manifests_addons_extras.documents)
+#     yaml_body = each.value
 
-    depends_on = [
-    helm_release.istio,
-  ]
-}
+#     depends_on = [
+#     helm_release.istio,
+#   ]
+# }
 
 data "kubectl_path_documents" "manifests" {
     pattern = "./addons/*.yaml"
@@ -20,6 +20,7 @@ resource "kubectl_manifest" "istio_addons_installer" {
     yaml_body = each.value
 
     depends_on = [
-    kubectl_manifest.istio_addons_extras_installer,
+    # kubectl_manifest.istio_addons_extras_installer,
+    helm_release.istio,
   ]
 }
