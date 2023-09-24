@@ -1,4 +1,4 @@
-data "kubectl_filename_list" "manifests_addons_extras" {
+data "kubectl_path_documents" "manifests_addons_extras" {
     pattern = "./addons/extras/*.yaml"
 }
 
@@ -11,7 +11,7 @@ resource "kubectl_manifest" "istio_addons_extras_installer" {
   ]
 }
 
-data "kubectl_filename_list" "manifests" {
+data "kubectl_path_documents" "manifests" {
     pattern = "./addons/*.yaml"
 }
 
