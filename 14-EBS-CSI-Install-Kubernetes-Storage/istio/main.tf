@@ -3,7 +3,7 @@ resource "helm_release" "istio" {
   repository          = var.helm_repository
   name = var.helm_release
 
-  chart     = "istio"
+  chart     = "istiod"
   version   = var.chart_version
   namespace = var.helm_namespace
   timeout   = 1200
