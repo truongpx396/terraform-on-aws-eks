@@ -1,5 +1,6 @@
 variable "helm_namespace" {
   description = "The namespace Helm will install the chart under"
+  default     = "monitoring"
 }
 variable "helm_release" {
   default     = "kube-prometheus-stack"
@@ -26,6 +27,7 @@ variable "helm_repository_username" {
 }
 variable "chart_version" {
   description = "Version of the Helm chart"
+  default     = "51.2.0"
 }
 
 variable "enable_destinationrules" {
@@ -58,7 +60,7 @@ variable "cluster_domain" {
 
 variable "enable_prometheusrules" {
   type        = bool
-  default     = true
+  default     = false
   description = "Adds PrometheusRules for alerts"
 }
 
