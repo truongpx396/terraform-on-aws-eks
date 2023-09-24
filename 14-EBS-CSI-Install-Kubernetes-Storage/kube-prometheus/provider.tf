@@ -9,6 +9,12 @@ provider "kubernetes" {
   token = data.aws_eks_cluster_auth.cluster.token
 }
 
+resource "kubernetes_namespace" "monitoring" {
+  metadata {
+    name = "monitoring"
+  }
+}
+
 # HELM Provider
 provider "helm" {
   kubernetes {

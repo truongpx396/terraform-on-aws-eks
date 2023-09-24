@@ -13,4 +13,8 @@ resource "helm_release" "kube_prometheus_stack" {
   values = [
     var.values,
   ]
+
+  depends_on = [
+    kubernetes_namespace.monitoring,
+  ]
 }
