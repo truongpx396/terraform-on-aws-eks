@@ -15,10 +15,3 @@ variable "eks_nodegroup_role_arn" {
   description = "nodegroup role arn"
   type        = string
 }
-
-variable aws_eks_cluster {
-  description = "eks cluster"
-  type = object({
-
-  })
-}
