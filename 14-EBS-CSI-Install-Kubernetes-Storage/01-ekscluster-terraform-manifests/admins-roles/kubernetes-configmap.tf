@@ -34,7 +34,7 @@ locals {
   ]  
 }
 # Resource: Kubernetes Config Map
-resource "kubernetes_config_map_v1" "aws_auth" {
+resource "kubernetes_config_map_v1_data" "aws_auth" {
   # depends_on = [aws_eks_cluster.eks_cluster  ]
   metadata {
     name      = "aws-auth"
@@ -43,6 +43,8 @@ resource "kubernetes_config_map_v1" "aws_auth" {
   data = {
     mapRoles = yamlencode(local.configmap_roles)
     mapUsers = yamlencode(local.configmap_users)    
-  }  
+  }
+
+  force = true  
 }
 
