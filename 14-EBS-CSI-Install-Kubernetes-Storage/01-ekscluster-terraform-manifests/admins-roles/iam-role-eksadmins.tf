@@ -38,6 +38,6 @@ resource "aws_iam_role" "eks_admin_role" {
   }    
 
   tags = {
-    tag-key = "${local.name}-eks-admin-role"
+    tag-key = "${var.resource_name}-eks-admin-role"
   }
 }
