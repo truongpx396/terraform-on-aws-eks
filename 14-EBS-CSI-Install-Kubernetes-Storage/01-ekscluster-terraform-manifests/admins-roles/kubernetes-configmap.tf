@@ -45,6 +45,6 @@ resource "kubernetes_config_map_v1" "aws_auth" {
     mapUsers = yamlencode(local.configmap_users)    
   }
 
-  force = true  
+  # force = true  
 }
 
