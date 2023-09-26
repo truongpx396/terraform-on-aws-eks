@@ -34,7 +34,7 @@ locals {
   ]  
 }
 # Resource: Kubernetes Config Map
-resource "kubernetes_config_map_v1_data" "aws_auth" {
+resource "kubernetes_config_map_v1" "aws_auth" {
   # depends_on = [aws_eks_cluster.eks_cluster  ]
   metadata {
     name      = "aws-auth"
