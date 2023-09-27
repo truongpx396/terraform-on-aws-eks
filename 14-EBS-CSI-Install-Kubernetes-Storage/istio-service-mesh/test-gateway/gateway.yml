@@ -1,10 +1,10 @@
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
   name: my-istio-gateway
 spec:
   selector:
-    istio: istio-ingressgateway # use istio default controller
+    istio: ingressgateway # use istio default controller
   servers:
   - port:
       number: 443
@@ -16,7 +16,7 @@ spec:
     hosts:
     - "*"  
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: myk8s
@@ -57,7 +57,7 @@ spec:
   #       port:
   #         number: 3000
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: grafana
