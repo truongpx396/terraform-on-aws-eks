@@ -29,6 +29,12 @@ resource "helm_release" "istio-ingressgateway" {
   namespace = var.helm_namespace
   timeout   = 1200
 
+  set {
+    name  = "service.type"
+    value = "NodePort"
+  }
+
+
   # values = [
   #   var.values,
   # ]
