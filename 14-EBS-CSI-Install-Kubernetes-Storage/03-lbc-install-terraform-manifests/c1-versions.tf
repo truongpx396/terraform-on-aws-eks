@@ -28,7 +28,7 @@ terraform {
   backend "s3" {
     bucket = "magiclab396-terraform-on-aws-eks"
     key    = "dev/aws-lbc/terraform.tfstate"
-    region = "us-east-1" 
+    region = "ap-southeast-1" 
 
     # For State Locking
     dynamodb_table = "dev-aws-lbc"    
