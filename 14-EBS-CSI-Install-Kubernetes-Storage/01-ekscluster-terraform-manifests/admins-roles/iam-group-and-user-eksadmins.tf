@@ -29,7 +29,7 @@ resource "aws_iam_group_policy" "eksadmins_iam_group_assumerole_policy" {
 
 # Resource: AWS IAM User - Basic User 
 resource "aws_iam_user" "eksadmin_user" {
-  name = "${var.resource_name}-eksadmin3"
+  name = "${var.cluster_name}-eksadmin3"
   path = "/"
   force_destroy = true
   tags = var.common_tags
@@ -37,7 +37,7 @@ resource "aws_iam_user" "eksadmin_user" {
 
 # Resource: AWS IAM Group Membership
 resource "aws_iam_group_membership" "eksadmins" {
-  name = "${var.resource_name}-eksadmins-group-membership"
+  name = "${var.cluster_name}-eksadmins-group-membership"
   users = [
     aws_iam_user.eksadmin_user.name
   ]
