@@ -1,7 +1,7 @@
 module "admins-roles" {
   source = "./admins-roles"
 
-  resource_name = local.name
+  cluster_name = local.name
 
   common_tags= local.common_tags
 
