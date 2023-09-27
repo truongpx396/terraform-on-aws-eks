@@ -22,7 +22,7 @@ metadata:
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-southeast-1:659706089488:certificate/793a6154-8a24-449d-aed5-9257e19f5c92
 spec:
   rules:
-  - host: "*.magiclab396.com"
+  - host: "*"
     http:
       paths:      
       - backend:
