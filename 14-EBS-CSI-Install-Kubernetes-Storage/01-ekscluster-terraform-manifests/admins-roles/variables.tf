@@ -1,6 +1,6 @@
 
-variable "resource_name" {
-  description = "Name of the resource"
+variable "cluster_name" {
+  description = "Name of the cluster"
   type        = string
   default     = "hr-dev"
 }

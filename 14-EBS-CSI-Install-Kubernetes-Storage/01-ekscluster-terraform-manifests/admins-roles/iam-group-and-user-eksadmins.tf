@@ -1,12 +1,12 @@
 # Resource: AWS IAM Group 
 resource "aws_iam_group" "eksadmins_iam_group" {
-  name = "${var.resource_name}-eksadmins"
+  name = "${var.cluster_name}-eksadmins"
   path = "/"
 }
 
 # Resource: AWS IAM Group Policy
 resource "aws_iam_group_policy" "eksadmins_iam_group_assumerole_policy" {
-  name  = "${var.resource_name}-eksadmins-group-policy"
+  name  = "${var.cluster_name}-eksadmins-group-policy"
   group = aws_iam_group.eksadmins_iam_group.name
 
   # Terraform's "jsonencode" function converts a

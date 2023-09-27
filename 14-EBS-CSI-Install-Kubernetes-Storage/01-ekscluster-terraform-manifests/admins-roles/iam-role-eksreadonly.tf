@@ -1,7 +1,6 @@
-
-# Resource: AWS IAM Role
-resource "aws_iam_role" "eks_admin_role" {
-  name = "${var.cluster_name}-eks-admin-role"
+# Resource: AWS IAM Role - EKS Read-Only User
+resource "aws_iam_role" "eks_readonly_role" {
+  name = "${var.cluster_name}-eks-readonly-role"
 
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
@@ -19,7 +18,7 @@ resource "aws_iam_role" "eks_admin_role" {
     ]
   })
   inline_policy {
-    name = "eks-full-access-policy"
+    name = "eks-readonly-access-policy"
 
     policy = jsonencode({
       Version = "2012-10-17"
@@ -27,8 +26,17 @@ resource "aws_iam_role" "eks_admin_role" {
         {
           Action   = [
             "iam:ListRoles",
-            "eks:*",
-            "ssm:GetParameter"
+            "ssm:GetParameter",
+            "eks:DescribeNodegroup",
+            "eks:ListNodegroups",
+            "eks:DescribeCluster",
+            "eks:ListClusters",
+            "eks:AccessKubernetesApi",
+            "eks:ListUpdates",
+            "eks:ListFargateProfiles",
+            "eks:ListIdentityProviderConfigs",
+            "eks:ListAddons",
+            "eks:DescribeAddonVersions"
           ]
           Effect   = "Allow"
           Resource = "*"
@@ -38,6 +46,6 @@ resource "aws_iam_role" "eks_admin_role" {
   }    
 
   tags = {
-    tag-key = "${var.cluster_name}-eks-admin-role"
+    tag-key = "${var.cluster_name}-eks-readonly-role"
   }
 }

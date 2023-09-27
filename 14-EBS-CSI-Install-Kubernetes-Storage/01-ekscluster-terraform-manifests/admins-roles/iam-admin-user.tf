@@ -1,6 +1,6 @@
 # Resource: AWS IAM User - Admin User (Has Full AWS Access)
 resource "aws_iam_user" "admin_user" {
-  name = "${var.resource_name}-eksadmin1"
+  name = "${var.cluster_name}-eksadmin1"
   path = "/"
   force_destroy = true
   tags = var.common_tags
