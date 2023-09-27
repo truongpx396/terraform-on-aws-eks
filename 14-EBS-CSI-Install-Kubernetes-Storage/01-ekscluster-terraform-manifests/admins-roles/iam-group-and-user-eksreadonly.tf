@@ -32,7 +32,7 @@ resource "aws_iam_user" "eksreadonly_user" {
   name = "${var.cluster_name}-eksreadonly1"
   path = "/"
   force_destroy = true
-  tags = local.common_tags
+  tags = var.common_tags
 }
 
 # Resource: AWS IAM Group Membership
