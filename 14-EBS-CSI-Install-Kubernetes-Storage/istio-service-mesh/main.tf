@@ -1,3 +1,19 @@
+
+resource "helm_release" "istio_base" {
+ 
+  repository          = var.helm_repository
+  chart     = "base"
+
+  name = "istio-base"
+
+  version   = var.chart_version
+  namespace = var.helm_namespace
+  timeout   = 1200
+
+  depends_on = [
+    kubernetes_namespace.istio_system,
+  ]
+}
 resource "helm_release" "istio" {
  
   repository          = var.helm_repository
@@ -14,7 +30,7 @@ resource "helm_release" "istio" {
   ]
 
   depends_on = [
-    kubernetes_namespace.istio_system,
+    helm_release.istio_base,
   ]
 }
 
