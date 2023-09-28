@@ -5,7 +5,8 @@ metadata:
   # namespace: istio-system
 spec:
   selector:
-    istio: ingress
+    # istio: ingress
+    istio: ingressgateway
     # istio: ingressgateway # use istio default controller
   servers:
   - port:
@@ -16,7 +17,7 @@ spec:
     - "*"
   - port:
       number: 443
-      name: https
+      name: https-443
       protocol: HTTPS
     tls:
       mode: SIMPLE
