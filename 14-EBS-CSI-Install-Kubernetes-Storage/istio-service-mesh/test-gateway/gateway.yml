@@ -12,7 +12,7 @@ spec:
       name: https
       protocol: HTTPS
     tls:
-      mode: SIMPLE                          
+      mode: ISTIO_MUTUAL                          
       credentialName: tls-secret 
     hosts:
     - "*"  
