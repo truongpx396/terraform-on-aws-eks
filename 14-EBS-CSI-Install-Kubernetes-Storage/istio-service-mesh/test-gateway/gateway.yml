@@ -12,8 +12,8 @@ spec:
       name: https
       protocol: HTTPS
     tls:
-      mode: ISTIO_MUTUAL                          
-      # credentialName: tls-secret 
+      mode: SIMPLE
+      credentialName: "tls-secret"
     hosts:
     - "*"  
 ---
@@ -43,6 +43,9 @@ spec:
             host: productpage.default.svc.cluster.local
             port:
               number: 9080
+      match:
+        - uri:
+            prefix: /
   # - match:
   #   - uri:
   #       exact: /dashboard1
