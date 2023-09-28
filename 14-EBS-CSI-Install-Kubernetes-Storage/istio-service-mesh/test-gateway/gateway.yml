@@ -10,7 +10,7 @@ spec:
   - port:
       number: 80
       name: http2
-      protocol: HTTP
+      protocol: HTTP2
     hosts:
     - "*"
   - port:
@@ -19,7 +19,7 @@ spec:
       protocol: HTTPS
     tls:
       mode: SIMPLE
-      credentialName: "tls-secret"
+      credentialName: "magiclab396-credential"
     hosts:
     - "*"  
 ---
