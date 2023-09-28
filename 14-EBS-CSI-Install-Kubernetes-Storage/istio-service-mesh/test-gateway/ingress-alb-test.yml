@@ -46,3 +46,7 @@ spec:
               number: 443
         path: /
         pathType: Prefix 
+      - path: /*
+        backend:
+          serviceName: istio-ingressgateway
+          servicePort: 80
