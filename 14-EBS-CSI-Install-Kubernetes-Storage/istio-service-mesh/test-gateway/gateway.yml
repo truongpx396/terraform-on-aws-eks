@@ -49,9 +49,9 @@ spec:
             host: productpage.default.svc.cluster.local
             port:
               number: 9080
-      match:
-        - uri:
-            prefix: /
+      # match:
+      #   - uri:
+      #       prefix: /
   # - match:
   #   - uri:
   #       exact: /dashboard1
