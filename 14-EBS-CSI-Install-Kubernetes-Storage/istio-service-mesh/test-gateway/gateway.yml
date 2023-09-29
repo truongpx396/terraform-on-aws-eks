@@ -21,7 +21,7 @@ spec:
       protocol: HTTPS
     tls:
       mode: SIMPLE
-      credentialName: myk8s-magiclab396-credential
+      credentialName: myk8s-magiclab396-credential1
     hosts:
     - "*"  
 ---
