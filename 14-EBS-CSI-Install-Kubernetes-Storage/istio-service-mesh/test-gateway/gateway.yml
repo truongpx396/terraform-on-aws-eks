@@ -21,7 +21,7 @@ spec:
       protocol: HTTPS
     tls:
       mode: SIMPLE
-      credentialName: myk8s-magiclab396-credential1
+      credentialName: myk8s-magiclab396-credential
     hosts:
     - "*"  
 ---
@@ -37,7 +37,7 @@ spec:
   http:
   - match:
     - uri:
-        prefix: /
+        prefix: /productpage
     route:
     - destination:
         # host: productpage.default.svc.cluster.local
