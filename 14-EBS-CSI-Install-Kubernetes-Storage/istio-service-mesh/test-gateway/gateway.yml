@@ -33,7 +33,7 @@ spec:
   hosts:
   - "myk8s.magiclab396.com"
   gateways:
-  - my-istio-gateway
+  - my-istio-gateway.default.svc.cluster.local
   http:
   - match:
     - uri:
@@ -86,7 +86,7 @@ spec:
   hosts:
   - "myk8s.grafana.magiclab396.com"
   gateways:
-  - my-istio-gateway
+  - my-istio-gateway.default.svc.cluster.local
   http:
   # - match:
   #   - uri:
