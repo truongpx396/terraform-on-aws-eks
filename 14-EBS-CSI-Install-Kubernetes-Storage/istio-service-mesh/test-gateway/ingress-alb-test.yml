@@ -4,7 +4,8 @@ metadata:
   name: alb-gateway-ingress
   namespace: istio-system
   annotations: 
-    kubernetes.io/ingress.class: alb  
+    # kubernetes.io/ingress.class: alb  
+    className: "alb"
     alb.ingress.kubernetes.io/scheme: internet-facing 
     alb.ingress.kubernetes.io/healthcheck-path: /healthz/ready
     alb.ingress.kubernetes.io/healthcheck-port: traffic-port
