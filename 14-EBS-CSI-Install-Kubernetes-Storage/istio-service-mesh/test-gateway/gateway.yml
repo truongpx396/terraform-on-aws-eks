@@ -2,7 +2,7 @@ apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
   name: my-istio-gateway
-  namespace: istio-ingress
+  namespace: istio-system
 spec:
   selector:
     # istio: ingress
@@ -40,8 +40,8 @@ spec:
         prefix: /productpage
     route:
     - destination:
-        # host: productpage.default.svc.cluster.local
-        host: productpage
+        host: productpage.default.svc.cluster.local
+        # host: productpage
         port:
           number: 9080
   # - match:
