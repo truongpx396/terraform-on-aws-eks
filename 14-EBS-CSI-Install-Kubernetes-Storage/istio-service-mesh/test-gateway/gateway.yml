@@ -35,15 +35,15 @@ spec:
   gateways:
   - my-istio-gateway
   http:
-  # - match:
-  #   - uri:
-  #       prefix: /
-    # route:
-    # - destination:
-    #     # host: productpage.default.svc.cluster.local
-    #     host: productpage
-    #     port:
-    #       number: 9080
+  - match:
+    - uri:
+        prefix: /
+    route:
+    - destination:
+        # host: productpage.default.svc.cluster.local
+        host: productpage
+        port:
+          number: 9080
   # - match:
   #   - uri:
   #       exact: /productpage
@@ -55,11 +55,11 @@ spec:
   #       exact: /logout
   #   - uri:
   #       prefix: /api/v1/products
-    - route:
-        - destination:
-            host: productpage
-            port:
-              number: 9080
+    # - route:
+    #     - destination:
+    #         host: productpage
+    #         port:
+    #           number: 9080
       # match:
       #   - uri:
       #       prefix: /
