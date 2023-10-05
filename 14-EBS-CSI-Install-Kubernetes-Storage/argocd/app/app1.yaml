@@ -12,6 +12,7 @@ spec:
     path: .
     repoURL: "https://github.com/magiclab396-global/fleetman-position-tracker-infra.git"
     targetRevision: master
+    kustomize:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
