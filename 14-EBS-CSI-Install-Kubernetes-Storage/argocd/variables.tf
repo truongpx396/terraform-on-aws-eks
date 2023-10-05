@@ -3,7 +3,7 @@ variable "helm_namespace" {
   default     = "argocd"
 }
 variable "helm_release" {
-  default     = "argo/argo-cd"
+  default     = "argo-cd"
   description = "The name of the Helm release"
 }
 
