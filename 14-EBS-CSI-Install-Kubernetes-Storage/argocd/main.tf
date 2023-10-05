@@ -5,7 +5,7 @@ resource "helm_release" "argocd" {
   repository_username = var.helm_repository_username
   repository_password = var.helm_repository_password
 
-  chart     = "argocd"
+  chart     = "argo-cd"
   version   = var.chart_version
   namespace = var.helm_namespace
   timeout   = 1200
