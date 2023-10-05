@@ -9,7 +9,7 @@ spec:
     server: "https://kubernetes.default.svc"
   project: default
   source: 
-    # path: guestbook
+    path: .
     repoURL: "https://github.com/magiclab396-global/fleetman-position-tracker-infra.git"
     targetRevision: master
   syncPolicy:
