@@ -15,6 +15,7 @@ spec:
     helm:
      releaseName: kube-prometheus-stack
   syncPolicy:
+    automated: {}
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true

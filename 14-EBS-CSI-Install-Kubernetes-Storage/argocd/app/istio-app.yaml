@@ -31,6 +31,7 @@ spec:
      repoURL: "https://github.com/istio/istio.git"
      targetRevision: master
   syncPolicy:
+    automated: {}
     syncOptions:
       - CreateNamespace=true
       # - ServerSideApply=true
