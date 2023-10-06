@@ -9,4 +9,4 @@ metadata:
 data:
   resource.customizations.ignoreDifferences.admissionregistration.k8s.io_ValidatingWebhookConfiguration: |
     jqPathExpressions:
-      - '.webhooks[]?.clientConfig.failurePolicy'
+      - '.webhooks[]?.failurePolicy'
