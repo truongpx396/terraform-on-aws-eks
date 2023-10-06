@@ -35,7 +35,8 @@ spec:
       jsonnet: {}
       exclude: '{loki.yaml}'
   syncPolicy:
-    automated: {}
+    automated: 
+      prune: true
     syncOptions:
       - CreateNamespace=true
       # - ServerSideApply=true
