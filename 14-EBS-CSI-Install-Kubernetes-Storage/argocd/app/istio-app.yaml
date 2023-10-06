@@ -30,6 +30,10 @@ spec:
    - path: samples/addons/
      repoURL: "https://github.com/istio/istio.git"
      targetRevision: master
+     directory:
+      # recurse: true
+      jsonnet: {}
+      exclude: '{loki.yaml}'
   syncPolicy:
     automated: {}
     syncOptions:
