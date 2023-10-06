@@ -19,6 +19,10 @@ spec:
      targetRevision: 1.19.0
      helm:
       releaseName: istio
+     data:
+      resource.customizations.ignoreDifferences.admissionregistration.k8s.io/v1_ValidatingWebhookConfiguration: |
+        jqPathExpressions:
+         - '.webhooks[]?.clientConfig.failurePolicy'
    - chart: gateway
      repoURL: "https://istio-release.storage.googleapis.com/charts"
      targetRevision: 1.19.0
