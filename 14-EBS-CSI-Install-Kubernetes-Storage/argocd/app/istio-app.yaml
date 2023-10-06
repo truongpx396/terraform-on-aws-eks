@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata: 
+  name: istio-app
+  namespace: argocd
+spec: 
+  destination: 
+    namespace: istio-system
+    server: "https://kubernetes.default.svc"
+  project: my-project
+  sources: 
+   - chart: base
+     repoURL: "https://istio-release.storage.googleapis.com/charts"
+     targetRevision: 1.19.0
+     helm:
+      releaseName: istio-base
+   - chart: istiod
+     repoURL: "https://istio-release.storage.googleapis.com/charts"
+     targetRevision: 1.19.0
+     helm:
+      releaseName: istio
+   - chart: gateway
+     repoURL: "https://istio-release.storage.googleapis.com/charts"
+     targetRevision: 1.19.0
+     helm:
+      releaseName: istio-ingressgateway
+      parameters:
+       - "name": "service.type"
+         "value": "NodePort"
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      # - ServerSideApply=true
