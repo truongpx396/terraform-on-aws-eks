@@ -1,0 +1,70 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata: 
+  name: openim-dependencies-app
+  namespace: argocd
+spec: 
+  destination: 
+    namespace: openim-dependencies
+    server: "https://kubernetes.default.svc"
+  project: openim-project
+  sources: 
+   - chart: mysql
+     repoURL: "https://charts.bitnami.com/bitnami"
+     targetRevision: 8.0.25
+     helm:
+      releaseName: openim-mysql
+      valuesFiles:
+        - $values/mysql/values.yaml
+   - chart: redis
+     repoURL: "https://charts.bitnami.com/bitnami"
+     targetRevision: 14.6.1
+     helm:
+      releaseName: openim-redis
+      valuesFiles:
+        - $values/redis/values.yaml
+   - chart: mongodb
+     repoURL: "https://charts.bitnami.com/bitnami"
+     targetRevision: 10.1.0
+     helm:
+      releaseName: openim-mongodb
+      valuesFiles:
+        - $values/mongodb/values.yaml
+   - chart: kafka
+     repoURL: "https://charts.bitnami.com/bitnami"
+     targetRevision: 14.1.0
+     helm:
+      releaseName: openim-kafka
+      valuesFiles:
+        - $values/kafka/values.yaml
+   - chart: zookeeper
+     repoURL: "https://charts.bitnami.com/bitnami"
+     targetRevision: 5.17.0
+     helm:
+      releaseName: openim-zookeeper
+      valuesFiles:
+        - $values/zookeeper/values.yaml
+   - chart: minio
+     repoURL: "https://charts.bitnami.com/bitnami"
+     targetRevision: 8.1.2
+     helm:
+      releaseName: openim-minio
+      valuesFiles:
+        - $values/minio/values.yaml
+   - chart: etcd
+     repoURL: "https://charts.bitnami.com/bitnami"
+     targetRevision: 9.5.1
+     helm:
+      releaseName: openim-etcd
+      valuesFiles:
+        - $values/etcd/values.yaml
+   - repoURL: "https://github.com/truongpx396/open-im-server-k8s-deploy.git"
+     ref: values
+     targetRevision: main
+  syncPolicy:
+    automated: 
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      # - ServerSideApply=true

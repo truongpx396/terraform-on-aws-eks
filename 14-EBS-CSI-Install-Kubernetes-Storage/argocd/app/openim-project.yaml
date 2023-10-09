@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: my-project
+  name: openim-project
   namespace: argocd
 spec:
-  description: Demo Project
+  description: Open Project
   sourceRepos:
   - '*'
 
