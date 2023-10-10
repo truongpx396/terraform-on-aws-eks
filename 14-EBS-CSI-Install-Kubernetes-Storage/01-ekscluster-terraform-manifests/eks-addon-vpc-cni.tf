@@ -1,8 +1,8 @@
 
-import {
-  to = aws_eks_addon.vpc_cni
-  id = "${aws_eks_cluster.eks_cluster.name}:${aws_eks_addon.vpc_cni.name}"
-}
+# import {
+#   to = aws_eks_addon.vpc_cni
+#   id = "${aws_eks_cluster.eks_cluster.name}:${aws_eks_addon.vpc_cni.name}"
+# }
 resource "aws_eks_addon" "vpc_cni" {
   cluster_name = aws_eks_cluster.eks_cluster.name
   addon_name   = "vpc-cni"
