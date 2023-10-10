@@ -12,7 +12,7 @@ resource "aws_launch_template" "node-group-launch-template" {
     
       ebs_optimized = true
     
-      user_data = template_cloudinit_config.this
+      user_data = data.template_cloudinit_config.this
       # user_data = filebase64("${path.module}/example.sh")
     }
 
