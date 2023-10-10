@@ -1,12 +1,13 @@
 
 # import {
 #   to = aws_eks_addon.vpc_cni
-#   id = "${aws_eks_cluster.eks_cluster.name}:${aws_eks_addon.vpc_cni.name}"
+#   id = "aws_eks_cluster.eks_cluster.name:aws_eks_addon.vpc_cni.name"
 # }
 resource "aws_eks_addon" "vpc_cni" {
   cluster_name = aws_eks_cluster.eks_cluster.name
   addon_name   = "vpc-cni"
   resolve_conflicts_on_update = "OVERWRITE"
+  resolve_conflicts_on_create = "OVERWRITE"
 
   configuration_values = jsonencode({
      env = {
