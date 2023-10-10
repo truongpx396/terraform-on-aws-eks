@@ -32,7 +32,7 @@ resource "aws_launch_template" "node-group-launch-template" {
         LINE_NUMBER=\$(grep -n "KUBELET_EXTRA_ARGS=\$2" /etc/eks/bootstrap.sh | cut -f1 -d:)
         REPLACEMENT="\ \ \ \ \ \ KUBELET_EXTRA_ARGS=\$(echo \$2 | sed -s -E 's/--max-pods=[0-9]+/--max-pods=109/g')"
         sed -i '/KUBELET_EXTRA_ARGS=\$2/d' /etc/eks/bootstrap.sh
-        sed -i "$${LINE_NUMBER}i $${REPLACEMENT}" /etc/eks/bootstrap.sh
+        sed -i "\$${LINE_NUMBER}i \$${REPLACEMENT}" /etc/eks/bootstrap.sh
       EOT
     }
 
