@@ -7,6 +7,10 @@ terraform {
       #version = "~> 3.70"
       version = ">= 4.65"
      }
+    template = {
+      source = "hashicorp/template"
+      version = "2.2.0"
+    }
   }
   # Adding Backend as S3 for Remote State Storage
   backend "s3" {
@@ -22,4 +26,8 @@ terraform {
 # Terraform Provider Block
 provider "aws" {
   region = var.aws_region
+}
+
+provider "template" {
+  # Configuration options
 }
