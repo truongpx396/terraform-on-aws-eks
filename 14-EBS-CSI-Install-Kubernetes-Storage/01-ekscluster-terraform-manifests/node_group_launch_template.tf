@@ -12,19 +12,21 @@ resource "aws_launch_template" "node-group-launch-template" {
     
       ebs_optimized = true
     
-      user_data = base64encode(data.template_file.set-max-pods.rendered)
+      user_data = template_cloudinit_config.this
       # user_data = filebase64("${path.module}/example.sh")
+    }
+
+    data "template_cloudinit_config" "this" {
+      gzip          = false
+      base64_encode = true
+
+      part {
+        content = "${data.template_file.set-max-pods.rendered}"
+      }
     }
     
     data "template_file" "set-max-pods" {
       template = <<EOF
-      MIME-Version: 1.0
-      Content-Type: multipart/mixed; boundary="==MYBOUNDARY=="
-
-      --==MYBOUNDARY==
-      Content-Type: text/x-shellscript; charset="us-ascii"
-      #!/bin/bash
       /etc/eks/bootstrap.sh ${aws_eks_cluster.eks_cluster.name} --use-max-pods false --kubelet-extra-args '--max-pods=110'
-      --==MYBOUNDARY==--\
       EOF
     }
