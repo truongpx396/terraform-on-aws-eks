@@ -12,11 +12,11 @@ resource "aws_launch_template" "node-group-launch-template" {
     
       ebs_optimized = true
     
-      user_data = data.template_cloudinit_config.this
+      user_data = "${data.template_cloudinit_config.config.rendered}"
       # user_data = filebase64("${path.module}/example.sh")
     }
 
-    data "template_cloudinit_config" "this" {
+    data "template_cloudinit_config" "config" {
       gzip          = false
       base64_encode = true
 
