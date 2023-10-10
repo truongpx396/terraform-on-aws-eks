@@ -10,7 +10,7 @@ resource "aws_launch_template" "node-group-launch-template" {
         }
       }
     
-      # ebs_optimized = true
+      ebs_optimized = true
     
       user_data = base64encode(data.template_file.set-max-pods.rendered)
       # user_data = filebase64("${path.module}/example.sh")
