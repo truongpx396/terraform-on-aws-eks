@@ -2,13 +2,13 @@ resource "aws_launch_template" "node-group-launch-template" {
       name_prefix = "eks-node-group"
       # image_id    = var.template-image-id
     
-      # block_device_mappings {
-      #   device_name = "/dev/sda1"
+      block_device_mappings {
+        device_name = "/dev/sda1"
     
-      #   ebs {
-      #     volume_size = var.ebs_size
-      #   }
-      # }
+      ebs {
+          volume_size = 20
+        }
+      }
     
       # ebs_optimized = true
     
