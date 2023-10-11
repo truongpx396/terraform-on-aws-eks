@@ -12,7 +12,7 @@ spec:
       protocol: HTTPS
     tls:
       mode: SIMPLE                          
-      credentialName: tls-secret 
+      credentialName: myk8s-magiclab396-credential 
     hosts:
     - "*"  
 ---
