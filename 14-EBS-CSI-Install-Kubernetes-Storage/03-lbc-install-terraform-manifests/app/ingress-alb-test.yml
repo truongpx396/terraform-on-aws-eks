@@ -1,3 +1,21 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: monitoring-grafana
+  namespace: istio-system
+spec:
+  type: ExternalName
+  externalName: kube-prometheus-stack-grafana.monitoring.svc.cluster.local
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: argocd
+  namespace: istio-system
+spec:
+  type: ExternalName
+  externalName: argo-cd-argocd-server.argocd.svc.cluster.local
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress 
 metadata: 
@@ -31,14 +49,14 @@ spec:
       paths:      
       - backend:
           service:
-            name: kube-prometheus-stack-grafana.monitoring.svc.cluster.local
+            name: monitoring-grafana
             port: 
               number: 80
         path: /grafana
         pathType: Prefix
       - backend:
           service:
-            name: argo-cd-argocd-server.argocd.svc.cluster.local
+            name: argocd
             port: 
               number: 80
         path: /argocd
