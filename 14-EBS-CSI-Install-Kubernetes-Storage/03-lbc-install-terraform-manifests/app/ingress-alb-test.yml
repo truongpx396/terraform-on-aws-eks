@@ -34,15 +34,15 @@ spec:
             name: kube-prometheus-stack-grafana.monitoring.svc.cluster.local
             port: 
               number: 80
-        path: /
-        pathType: grafana
+        path: /grafana
+        pathType: Prefix
       - backend:
           service:
             name: argo-cd-argocd-server.argocd.svc.cluster.local
             port: 
               number: 80
-        path: /
-        pathType: argocd
+        path: /argocd
+        pathType: Prefix
       - backend:
           service:
             name: ssl-redirect
