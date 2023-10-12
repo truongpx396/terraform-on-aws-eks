@@ -2,29 +2,47 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress 
 metadata: 
   name: alb-gateway-ingress
-  namespace: istio-system-ingress
+  namespace: istio-system
   annotations: 
-    kubernetes.io/ingress.class: alb  
+    # kubernetes.io/ingress.class: alb  
+    alb.ingress.kubernetes.io/load-balancer-name: ingress-ssl-gateway
     alb.ingress.kubernetes.io/scheme: internet-facing 
     alb.ingress.kubernetes.io/healthcheck-path: /healthz/ready
     alb.ingress.kubernetes.io/healthcheck-port: traffic-port
-    alb.ingress.kubernetes.io/backend-protocol: HTTPS
+    # alb.ingress.kubernetes.io/backend-protocol: HTTPS
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
-    alb.ingress.kubernetes.io/actions.ssl-redirect: |
-      {
-        "Type": "redirect", 
-        "RedirectConfig": { 
-          "Protocol": "HTTPS", 
-          "Port": "443", 
-          "StatusCode": "HTTP_301"
-        }
-      }
+    # alb.ingress.kubernetes.io/actions.ssl-redirect: |
+    #   {
+    #     "Type": "redirect", 
+    #     "RedirectConfig": { 
+    #       "Protocol": "HTTPS", 
+    #       "Port": "443", 
+    #       "StatusCode": "HTTP_301"
+    #     }
+    #   }
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-southeast-1:659706089488:certificate/793a6154-8a24-449d-aed5-9257e19f5c92
+    
 spec:
+  ingressClassName: my-aws-ingress-class
   rules:
   - host: "*.magiclab396.com"
     http:
       paths:      
+      - backend:
+          service:
+            name: kube-prometheus-stack-grafana.monitoring.svc.cluster.local
+            port: 
+              number: 80
+        path: /
+        pathType: grafana
+      - backend:
+          service:
+            name: argo-cd-argocd-server.argocd.svc.cluster.local
+            port: 
+              number: 80
+        path: /
+        pathType: argocd
       - backend:
           service:
             name: ssl-redirect
@@ -45,4 +63,10 @@ spec:
             port: 
               number: 443
         path: /
-        pathType: Prefix 
+        pathType: Prefix
+
+      # -  route:
+  #   - destination:
+  #       host: grafana.istio-system.svc.cluster.local
+  #       port:
+  #         number: 3000
