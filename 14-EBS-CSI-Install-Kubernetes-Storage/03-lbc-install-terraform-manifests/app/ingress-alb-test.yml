@@ -5,7 +5,7 @@ metadata:
   namespace: istio-system
   annotations:
     alb.ingress.kubernetes.io/target-type: 'ip'
-    alb.ingress.kubernetes.io/healthcheck-path: /
+    alb.ingress.kubernetes.io/healthcheck-path: /api/health
 spec:
   type: ExternalName
   externalName: kube-prometheus-stack-grafana.monitoring.svc.cluster.local
@@ -20,7 +20,7 @@ metadata:
   namespace: istio-system
   annotations:
     alb.ingress.kubernetes.io/target-type: 'ip'
-    alb.ingress.kubernetes.io/healthcheck-path: /
+    alb.ingress.kubernetes.io/healthcheck-path: /api/health
 spec:
   type: ExternalName
   externalName: argo-cd-argocd-server.argocd.svc.cluster.local
