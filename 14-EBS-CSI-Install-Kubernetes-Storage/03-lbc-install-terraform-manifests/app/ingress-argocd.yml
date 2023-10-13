@@ -10,9 +10,9 @@ metadata:
     alb.ingress.kubernetes.io/load-balancer-name: ingress-ssl-gateway
     alb.ingress.kubernetes.io/scheme: internet-facing 
     # alb.ingress.kubernetes.io/healthcheck-path: :server/healthz
-    alb.ingress.kubernetes.io/healthcheck-path: /healthz
+    alb.ingress.kubernetes.io/healthcheck-path: ':server/healthz'
     alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
-    alb.ingress.kubernetes.io/healthcheck-port: server
+    alb.ingress.kubernetes.io/healthcheck-port: traffic-port
     # alb.ingress.kubernetes.io/backend-protocol: HTTPS
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
     alb.ingress.kubernetes.io/ssl-redirect: '443'
