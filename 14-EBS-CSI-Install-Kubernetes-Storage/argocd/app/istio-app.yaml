@@ -22,6 +22,14 @@ spec:
       # parameters:
       #  - "name": "global.operatorManageWebhooks"
       #    "value": "true"
+   - chart: gateway
+     repoURL: "https://istio-release.storage.googleapis.com/charts"
+     targetRevision: 1.19.2
+     helm:
+      releaseName: istio-ingressgateway
+      parameters:
+       - "name": "service.type"
+         "value": "ClusterIP"
    - path: samples/addons/
      repoURL: "https://github.com/istio/istio.git"
      targetRevision: master
