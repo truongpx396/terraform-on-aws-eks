@@ -22,7 +22,8 @@ metadata:
 spec:
   ingressClassName: my-aws-ingress-class
   rules:
-  - host: "grafana.myk8s.magiclab396.com"
+  # - host: "*.magiclab396.com"
+  - host: "ingress-ssl-gateway-2056860801.ap-southeast-1.elb.amazonaws.com"
     http:
       paths:      
       - backend:
