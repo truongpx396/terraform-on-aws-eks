@@ -9,7 +9,7 @@ metadata:
     # kubernetes.io/ingress.class: my-aws-ingress-class  
     alb.ingress.kubernetes.io/load-balancer-name: ingress-ssl-gateway
     alb.ingress.kubernetes.io/scheme: internet-facing 
-    # alb.ingress.kubernetes.io/healthcheck-path: /healthz/ready
+    alb.ingress.kubernetes.io/healthcheck-path: /api/health
     alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
     alb.ingress.kubernetes.io/healthcheck-port: traffic-port
     # alb.ingress.kubernetes.io/backend-protocol: HTTPS
