@@ -22,7 +22,7 @@ metadata:
 spec:
   ingressClassName: my-aws-ingress-class
   rules:
-  - host: "*.magiclab396.com"
+  - host: "grafana.myk8s.magiclab396.com"
     http:
       paths:      
       - backend:
@@ -30,5 +30,5 @@ spec:
             name: kube-prometheus-stack-grafana
             port: 
               number: 80
-        path: /grafana
+        path: /
         pathType: Prefix
