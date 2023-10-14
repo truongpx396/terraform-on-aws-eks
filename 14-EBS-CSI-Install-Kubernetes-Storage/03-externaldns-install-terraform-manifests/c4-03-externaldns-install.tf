@@ -11,7 +11,14 @@ resource "helm_release" "external_dns" {
   # set {
   #   name = "image.repository"
   #   value = "k8s.gcr.io/external-dns/external-dns" 
-  # }       
+  # } 
+
+  # shareProcessNamespace      
+
+  set {
+    name  = "shareProcessNamespace"
+    value = "true"
+  }
 
   set {
     name  = "serviceAccount.create"
