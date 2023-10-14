@@ -6,7 +6,7 @@ resource "helm_release" "external_dns" {
   repository = "https://kubernetes-sigs.github.io/external-dns/"
   chart      = "external-dns"
 
-  namespace = "kube-system"     
+  # namespace = "kube-system"     
 
   # set {
   #   name = "image.repository"
