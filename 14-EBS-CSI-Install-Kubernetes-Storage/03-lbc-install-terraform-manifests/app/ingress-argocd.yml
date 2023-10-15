@@ -31,8 +31,8 @@ spec:
             name: argo-cd-argocd-server
             port: 
               name: https
-        # path: /
-        # pathType: Prefix
+        path: /
+        pathType: Prefix
   tls:
   - hosts:
     - argocd.magiclab396.com
