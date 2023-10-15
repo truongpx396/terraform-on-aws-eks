@@ -25,14 +25,14 @@ spec:
   rules:
   - host: "argocd.magiclab396.com"
     http:
-      paths:      
-      - backend:
+      paths:
+      - pathType: Prefix     
+        path: /
+        backend:
           service:
             name: argo-cd-argocd-server
             port: 
-              name: https
-        path: /
-        pathType: Prefix
+              name: http
   tls:
   - hosts:
     - argocd.magiclab396.com
