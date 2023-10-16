@@ -35,7 +35,7 @@ metadata:
     # alb.ingress.kubernetes.io/healthcheck-port: traffic-port
     alb.ingress.kubernetes.io/backend-protocol: HTTPS
     alb.ingress.kubernetes.io/conditions.argogrpc: |
-      [{"field":"http-header","httpHeaderConfig":{"httpHeaderName": "Content-Type", "values":["application/grpc"]}}]
+       [{"field":"http-header","httpHeaderConfig":{"httpHeaderName": "Content-Type", "values":["application/grpc"]}}]
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
     # alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
     # alb.ingress.kubernetes.io/ssl-redirect: '443'
