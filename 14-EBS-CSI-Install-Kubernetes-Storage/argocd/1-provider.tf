@@ -15,25 +15,28 @@ resource "kubernetes_namespace" "argocd" {
   }
 }
 
-resource "kubernetes_namespace" "istio-ingress" {
+resource "kubernetes_labels" "istio_enabled" {
+  api_version = "v1"
+  kind        = "Namespace"
   metadata {
-    labels = {
-      istio-injection = "enabled"
-    }
-
-    name = "istio-ingress"
+    name = "label_istio_enabled"
+    namespace = "default"
+  }
+  labels = {
+    istio-injection = "enabled"
   }
 }
 
-resource "kubernetes_namespace" "default" {
-  metadata {
-    labels = {
-      istio-injection = "enabled"
-    }
+# resource "kubernetes_namespace" "istio-ingress" {
+#   metadata {
+#     labels = {
+#       istio-injection = "enabled"
+#     }
 
-    name = "default"
-  }
-}
+#     name = "istio-ingress"
+#   }
+# }
+
 
 provider "kubectl" {
   host                   = data.terraform_remote_state.eks.outputs.cluster_endpoint
