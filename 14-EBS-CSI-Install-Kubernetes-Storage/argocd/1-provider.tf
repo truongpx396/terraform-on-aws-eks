@@ -15,6 +15,26 @@ resource "kubernetes_namespace" "argocd" {
   }
 }
 
+resource "kubernetes_namespace" "istio-ingress" {
+  metadata {
+    labels = {
+      istio-injection = "enabled"
+    }
+
+    name = "istio-ingress"
+  }
+}
+
+resource "kubernetes_namespace" "default" {
+  metadata {
+    labels = {
+      istio-injection = "enabled"
+    }
+
+    name = "default"
+  }
+}
+
 provider "kubectl" {
   host                   = data.terraform_remote_state.eks.outputs.cluster_endpoint
   cluster_ca_certificate = base64decode(data.terraform_remote_state.eks.outputs.cluster_certificate_authority_data)
