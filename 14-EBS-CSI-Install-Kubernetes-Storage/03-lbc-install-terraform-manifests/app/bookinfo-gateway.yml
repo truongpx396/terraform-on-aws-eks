@@ -22,7 +22,7 @@ metadata:
   name: myk8s
 spec:
   hosts:
-  - "myk8s.magiclab396.com"
+  - "k8s.magiclab396.com"
   gateways:
   - bookinfo-gateway
   http:
