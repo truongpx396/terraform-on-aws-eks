@@ -19,7 +19,7 @@ resource "kubernetes_labels" "istio_enabled" {
   api_version = "v1"
   kind        = "Namespace"
   metadata {
-    name = "label_istio_enabled"
+    # name = "label_istio_enabled"
     namespace = "default"
   }
   labels = {
