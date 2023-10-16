@@ -63,7 +63,6 @@ spec:
             name: argo-cd-argocd-server 
             port:
               number: 443
-        
   tls:
   - hosts:
     - myk8s.argocd.magiclab396.com
