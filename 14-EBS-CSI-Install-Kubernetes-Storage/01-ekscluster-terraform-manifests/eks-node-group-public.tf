@@ -40,7 +40,7 @@ resource "aws_eks_node_group" "eks_ng_public" {
     aws_iam_role_policy_attachment.eks-AmazonEKSWorkerNodePolicy,
     aws_iam_role_policy_attachment.eks-AmazonEKS_CNI_Policy,
     aws_iam_role_policy_attachment.eks-AmazonEC2ContainerRegistryReadOnly,
-    module.admins-roles.aws_auth,
+    # module.admins-roles.aws_auth,
     aws_eks_addon.vpc_cni
   ] 
 
