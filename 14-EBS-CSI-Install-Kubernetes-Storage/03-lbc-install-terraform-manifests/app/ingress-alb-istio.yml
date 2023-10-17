@@ -31,9 +31,9 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress 
 metadata: 
   name: alb-gateway-ingress
-  namespace: istio-system-ingress
+  namespace: istio-system
   annotations: 
-    alb.ingress.kubernetes.io/target-type: 'ip'
+    # alb.ingress.kubernetes.io/target-type: 'ip'
     # kubernetes.io/ingress.class: my-aws-ingress-class  
     alb.ingress.kubernetes.io/load-balancer-name: ingress-ssl-gateway
     alb.ingress.kubernetes.io/scheme: internet-facing 
