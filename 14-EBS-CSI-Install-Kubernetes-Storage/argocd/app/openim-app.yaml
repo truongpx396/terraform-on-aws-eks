@@ -9,14 +9,12 @@ spec:
     server: "https://kubernetes.default.svc"
   project: openim-project
   sources: 
-   - chart: config-chart
-     path: open-im-server
+   - path: open-im-server/config-chart
      repoURL: "https://github.com/truongpx396/open-im-server-k8s-deploy.git"
      targetRevision: main
      helm:
       releaseName: openim-config
-   - chart: notification-config-chart
-     path: open-im-server
+   - path: open-im-server/notification-config-chart
      repoURL: "https://github.com/truongpx396/open-im-server-k8s-deploy.git"
      targetRevision: main
      helm:
