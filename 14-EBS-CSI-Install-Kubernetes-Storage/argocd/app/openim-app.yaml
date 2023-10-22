@@ -12,13 +12,13 @@ spec:
    - chart: config-chart
      path: open-im-server
      repoURL: "https://github.com/truongpx396/open-im-server-k8s-deploy.git"
-     targetRevision: HEAD
+     targetRevision: main
      helm:
       releaseName: openim-config
    - chart: notification-config-chart
      path: open-im-server
      repoURL: "https://github.com/truongpx396/open-im-server-k8s-deploy.git"
-     targetRevision: HEAD
+     targetRevision: main
      helm:
       releaseName: openim-notification-config
    - path: open-im-server/api
