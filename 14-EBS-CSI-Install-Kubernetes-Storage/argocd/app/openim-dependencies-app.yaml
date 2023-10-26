@@ -21,8 +21,8 @@ spec:
      targetRevision: 18.1.2
      helm:
       releaseName: openim-redis
-      # valueFiles:
-      # - $values/redis/values.yaml
+      valueFiles:
+      - $values/redis/values.yaml
    - chart: mongodb
      repoURL: "https://charts.bitnami.com/bitnami"
      targetRevision: 14.0.5
