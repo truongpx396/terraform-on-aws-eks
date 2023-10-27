@@ -11,11 +11,11 @@ spec:
   sources: 
    - chart: mysql
      repoURL: "https://charts.bitnami.com/bitnami"
-     targetRevision: 9.12.3
+     targetRevision: 9.14.1
      helm:
       releaseName: openim-mysql
-      # valueFiles:
-      # - $values/mysql/values.yaml
+      valueFiles:
+      - $values/mysql/values.yaml
    - chart: redis
      repoURL: "https://charts.bitnami.com/bitnami"
      targetRevision: 18.1.6
