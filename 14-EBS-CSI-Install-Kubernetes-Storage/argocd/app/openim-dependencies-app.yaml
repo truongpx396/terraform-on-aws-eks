@@ -25,11 +25,11 @@ spec:
       - $values/redis/values.yaml
    - chart: mongodb
      repoURL: "https://charts.bitnami.com/bitnami"
-     targetRevision: 14.0.5
+     targetRevision: 14.0.14
      helm:
       releaseName: openim-mongodb
-      # valueFiles:
-      # - $values/mongodb/values.yaml
+      valueFiles:
+      - $values/mongodb/values.yaml
    - chart: kafka
      repoURL: "https://charts.bitnami.com/bitnami"
      targetRevision: 25.3.1
