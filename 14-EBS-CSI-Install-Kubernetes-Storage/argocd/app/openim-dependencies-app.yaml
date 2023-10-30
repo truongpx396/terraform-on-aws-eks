@@ -32,11 +32,11 @@ spec:
       - $values/mongodb/values.yaml
    - chart: kafka
      repoURL: "https://charts.bitnami.com/bitnami"
-     targetRevision: 25.3.1
+     targetRevision: 26.2.0
      helm:
       releaseName: openim-kafka
-      # valueFiles:
-      # - $values/kafka/values.yaml
+      valueFiles:
+      - $values/kafka/values.yaml
    - chart: zookeeper
      repoURL: "https://charts.bitnami.com/bitnami"
      targetRevision: 12.1.6
