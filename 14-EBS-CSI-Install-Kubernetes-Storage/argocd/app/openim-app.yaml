@@ -28,6 +28,9 @@ spec:
    - path: open-im-server/msg_transfer
      repoURL: "https://github.com/truongpx396/open-im-server-k8s-deploy.git"
      targetRevision: main
+   - path: open-im-server/push
+     repoURL: "https://github.com/truongpx396/open-im-server-k8s-deploy.git"
+     targetRevision: main
    - path: open-im-server/rpc_auth
      repoURL: "https://github.com/truongpx396/open-im-server-k8s-deploy.git"
      targetRevision: main
