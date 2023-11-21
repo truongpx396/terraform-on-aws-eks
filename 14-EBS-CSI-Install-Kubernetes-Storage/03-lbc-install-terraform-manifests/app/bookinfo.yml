@@ -75,9 +75,16 @@ spec:
         image: docker.io/istio/examples-bookinfo-details-v1:1.17.0
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 9080
+      - containerPort: 9080
         securityContext:
           runAsUser: 1000
+        resources:
+          requests:
+            cpu: 100m
+            memory: 250Mi
+          limits:
+            cpu: 160m
+            memory: "360Mi"
 ---
 ##################################################################################################
 # Ratings service
@@ -131,6 +138,13 @@ spec:
         - containerPort: 9080
         securityContext:
           runAsUser: 1000
+        resources:
+          requests:
+            cpu: 100m
+            memory: 250Mi
+          limits:
+            cpu: 160m
+            memory: "360Mi"
 ---
 ##################################################################################################
 # Reviews service
@@ -192,6 +206,13 @@ spec:
           mountPath: /opt/ibm/wlp/output
         securityContext:
           runAsUser: 1000
+        resources:
+          requests:
+            cpu: 100m
+            memory: 250Mi
+          limits:
+            cpu: 160m
+            memory: "360Mi"
       volumes:
       - name: wlp-output
         emptyDir: {}
@@ -234,6 +255,13 @@ spec:
           mountPath: /opt/ibm/wlp/output
         securityContext:
           runAsUser: 1000
+        resources:
+          requests:
+            cpu: 100m
+            memory: 250Mi
+          limits:
+            cpu: 160m
+            memory: "360Mi"
       volumes:
       - name: wlp-output
         emptyDir: {}
@@ -276,6 +304,13 @@ spec:
           mountPath: /opt/ibm/wlp/output
         securityContext:
           runAsUser: 1000
+        resources:
+          requests:
+            cpu: 100m
+            memory: 250Mi
+          limits:
+            cpu: 160m
+            memory: "360Mi"
       volumes:
       - name: wlp-output
         emptyDir: {}
@@ -337,6 +372,13 @@ spec:
           mountPath: /tmp
         securityContext:
           runAsUser: 1000
+        resources:
+          requests:
+            cpu: 100m
+            memory: 250Mi
+          limits:
+            cpu: 160m
+            memory: "360Mi"
       volumes:
       - name: tmp
         emptyDir: {}
