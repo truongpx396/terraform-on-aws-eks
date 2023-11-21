@@ -84,7 +84,7 @@ spec:
             memory: 250Mi
           limits:
             cpu: 160m
-            memory: "360Mi"
+            memory: "400Mi"
 ---
 ##################################################################################################
 # Ratings service
@@ -144,7 +144,7 @@ spec:
             memory: 250Mi
           limits:
             cpu: 160m
-            memory: "360Mi"
+            memory: "400Mi"
 ---
 ##################################################################################################
 # Reviews service
@@ -212,7 +212,7 @@ spec:
             memory: 250Mi
           limits:
             cpu: 160m
-            memory: "360Mi"
+            memory: "400Mi"
       volumes:
       - name: wlp-output
         emptyDir: {}
@@ -261,7 +261,7 @@ spec:
             memory: 250Mi
           limits:
             cpu: 160m
-            memory: "360Mi"
+            memory: "400Mi"
       volumes:
       - name: wlp-output
         emptyDir: {}
@@ -310,7 +310,7 @@ spec:
             memory: 250Mi
           limits:
             cpu: 160m
-            memory: "360Mi"
+            memory: "400Mi"
       volumes:
       - name: wlp-output
         emptyDir: {}
@@ -371,7 +371,7 @@ spec:
             memory: 250Mi
           limits:
             cpu: 160m
-            memory: "360Mi"
+            memory: "400Mi"
         ports:
         - containerPort: 9080
         volumeMounts:
