@@ -41,5 +41,5 @@ spec:
             name: msg-gateway
             port: 
               number: 10001
-      path: /
-      pathType: Prefix
+        path: /
+        pathType: Prefix
