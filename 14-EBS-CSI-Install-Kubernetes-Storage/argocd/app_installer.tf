@@ -8,5 +8,6 @@ resource "kubectl_manifest" "argocd_app_installer" {
 
     depends_on = [
     helm_release.argocd,
+    kubernetes_labels.istio_enabled
   ]
 }
