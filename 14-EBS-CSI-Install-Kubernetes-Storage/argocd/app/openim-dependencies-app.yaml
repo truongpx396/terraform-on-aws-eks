@@ -51,11 +51,11 @@ spec:
       releaseName: openim-minio
       # valueFiles:
       # - $values/minio/values.yaml
-   - chart: etcd
-     repoURL: "https://charts.bitnami.com/bitnami"
-     targetRevision: 9.5.1
-     helm:
-      releaseName: openim-etcd
+  #  - chart: etcd
+  #    repoURL: "https://charts.bitnami.com/bitnami"
+  #    targetRevision: 9.5.1
+  #    helm:
+  #     releaseName: openim-etcd
       # valueFiles:
       # - $values/etcd/values.yaml
    - repoURL: "https://github.com/truongpx396/open-im-server-k8s-deploy.git"
