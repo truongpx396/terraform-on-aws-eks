@@ -53,7 +53,7 @@ spec:
      repoURL: "https://github.com/truongpx396/open-im-server-k8s-deploy.git"
      targetRevision: main
   syncPolicy:
-    automated: 
+    automated:
       prune: true
     syncOptions:
       - CreateNamespace=true
