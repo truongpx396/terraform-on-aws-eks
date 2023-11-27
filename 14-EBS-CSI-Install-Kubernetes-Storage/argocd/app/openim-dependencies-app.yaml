@@ -46,11 +46,11 @@ spec:
       - $values/open-im-dependencies/zookeeper/values.yaml
    - chart: minio
      repoURL: "https://charts.bitnami.com/bitnami"
-     targetRevision: 12.8.12
+     targetRevision: 12.10.3
      helm:
       releaseName: openim-minio
-      # valueFiles:
-      # - $values/minio/values.yaml
+      valueFiles:
+      - $values/open-im-dependencies/minio/values.yaml
   #  - chart: etcd
   #    repoURL: "https://charts.bitnami.com/bitnami"
   #    targetRevision: 9.5.1
